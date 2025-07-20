@@ -13,7 +13,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div >
       <h1>CRUD App with JWT Auth</h1>
 
       {!loggedIn ? (
