@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import API from "../api";
+import "./UserList.css"; // Import CSS file
 
 const UserList = ({ users, error, onDelete, onUpdate }) => {
   const [editingUserId, setEditingUserId] = useState(null);
@@ -38,7 +39,7 @@ const UserList = ({ users, error, onDelete, onUpdate }) => {
   const handleUpdate = async (id) => {
     try {
       const res = await API.put(`/api/authuser/update/${id}`, editData);
-      onUpdate(id, res.data); // Optional: refresh UI
+      onUpdate(id, res.data);
       cancelEdit();
     } catch (err) {
       console.error("Failed to update user:", err);
@@ -46,85 +47,61 @@ const UserList = ({ users, error, onDelete, onUpdate }) => {
     }
   };
 
-  if (error) return <div className="text-red-500">{error}</div>;
+  if (error) return <div className="error">{error}</div>;
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h2 className="text-2xl font-bold mb-6">User List</h2>
+    <div className="user-list-container">
+      <h2>User List</h2>
 
-      <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-500 border-collapse rounded-lg shadow-sm">
-
+      <div className="table-wrapper">
+        <table className="user-table">
           <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-400 px-4 py-3 text-left font-semibold">Username</th>
-              <th className="border border-gray-400 px-4 py-3 text-left font-semibold">Email</th>
-              <th className="border border-gray-400 px-4 py-3 text-left font-semibold">Address</th>
-              <th className="border border-gray-400 px-4 py-3 text-center font-semibold">Actions</th>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Address</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
             {users.map((user) => (
-              <tr key={user._id} className="hover:bg-gray-50">
+              <tr key={user._id}>
                 {editingUserId === user._id ? (
                   <>
-                    <td className="border border-gray-400 px-4 py-2">
+                    <td>
                       <input
                         type="text"
                         value={editData.username}
                         onChange={(e) => setEditData({ ...editData, username: e.target.value })}
-                        className="border px-2 py-1 w-full"
                       />
                     </td>
-                    <td className="border border-gray-400 px-4 py-2">
+                    <td>
                       <input
                         type="email"
                         value={editData.email}
                         onChange={(e) => setEditData({ ...editData, email: e.target.value })}
-                        className="border px-2 py-1 w-full"
                       />
                     </td>
-                    <td className="border border-gray-400 px-4 py-2">
+                    <td>
                       <input
                         type="text"
                         value={editData.address}
                         onChange={(e) => setEditData({ ...editData, address: e.target.value })}
-                        className="border px-2 py-1 w-full"
                       />
                     </td>
-                    <td className="border border-gray-400 px-4 py-2 text-center space-x-2">
-                      <button
-                        onClick={() => handleUpdate(user._id)}
-                        className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded"
-                      >
-                        Save
-                      </button>
-                      <button
-                        onClick={cancelEdit}
-                        className="bg-gray-400 hover:bg-gray-500 text-white px-3 py-1 rounded"
-                      >
-                        Cancel
-                      </button>
+                    <td className="actions">
+                      <button onClick={() => handleUpdate(user._id)} className="save-btn">Save</button>
+                      <button onClick={cancelEdit} className="cancel-btn">Cancel</button>
                     </td>
                   </>
                 ) : (
                   <>
-                    <td className="border border-gray-400 px-4 py-2">{user.username}</td>
-                    <td className="border border-gray-400 px-4 py-2">{user.email || "N/A"}</td>
-                    <td className="border border-gray-400 px-4 py-2">{user.address || "N/A"}</td>
-                    <td className="border border-gray-400 px-4 py-2 text-center space-x-2">
-                      <button
-                        onClick={() => startEdit(user)}
-                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded"
-                      >
-                        Edit
-                      </button>
-                      <button
-                        onClick={() => handleDelete(user._id)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded"
-                      >
-                        Delete
-                      </button>
+                    <td>{user.username}</td>
+                    <td>{user.email || "N/A"}</td>
+                    <td>{user.address || "N/A"}</td>
+                    <td className="actions">
+                      <button onClick={() => startEdit(user)} className="edit-btn">Edit</button>
+                      <button onClick={() => handleDelete(user._id)} className="delete-btn">Delete</button>
                     </td>
                   </>
                 )}
