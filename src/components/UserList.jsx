@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import API from "../api";
-import "./UserList.css"; // Import CSS file
+import "./index.css"; // Import CSS file
 
 const UserList = ({ users, error, onDelete, onUpdate }) => {
   const [editingUserId, setEditingUserId] = useState(null);
