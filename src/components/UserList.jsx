@@ -53,7 +53,8 @@ const UserList = ({ users, error, onDelete, onUpdate }) => {
       <h2 className="text-2xl font-bold mb-6">User List</h2>
 
       <div className="overflow-x-auto">
-        <table className="min-w-full border border-gray-400">
+        <table className="min-w-full border border-gray-500 border-collapse rounded-lg shadow-sm">
+
           <thead>
             <tr className="bg-gray-200">
               <th className="border border-gray-400 px-4 py-3 text-left font-semibold">Username</th>
