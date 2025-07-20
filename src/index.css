@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -71,78 +70,176 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
-.user-list-container {
-  max-width: 1000px;
-  margin: 30px auto;
-  font-family: Arial, sans-serif;
+/* Container */
+.table-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9fafb;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.1);
 }
 
-.user-list-container h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
+/* Table wrapper to handle overflow */
 .table-wrapper {
   overflow-x: auto;
 }
 
-.user-table {
+/* Table styling */
+table {
   width: 100%;
   border-collapse: collapse;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
 }
 
-.user-table th,
-.user-table td {
-  border: 1px solid #ccc;
-  padding: 10px;
+/* Table head */
+thead th {
+  background-color: #2563eb; /* blue-600 */
+  color: #fff;
+  padding: 12px 16px;
   text-align: left;
+  font-weight: 600;
+  border-bottom: 3px solid #1e40af; /* blue-800 */
+  user-select: none;
+  border-radius: 8px 8px 0 0;
 }
 
-.user-table th {
-  background-color: #f2f2f2;
+/* Center align actions header */
+thead th.text-center {
+  text-align: center;
 }
 
-.user-table tr:hover {
-  background-color: #fafafa;
+/* Table body rows */
+tbody tr {
+  border-bottom: 1px solid #e5e7eb; /* gray-200 */
+  transition: background-color 0.25s ease;
 }
 
-.user-table input {
+/* Hover effect on rows */
+tbody tr:hover {
+  background-color: #e0e7ff; /* blue-100 */
+}
+
+/* Table cells */
+td {
+  padding: 12px 16px;
+  vertical-align: middle;
+  font-size: 15px;
+  color: #374151; /* gray-700 */
+  border-right: 1px solid #e5e7eb;
+}
+
+/* Remove right border on last td */
+td:last-child {
+  border-right: none;
+}
+
+/* Center align action buttons cell */
+td.text-center {
+  text-align: center;
+}
+
+/* Input fields in editing mode */
+input[type="text"],
+input[type="email"] {
   width: 100%;
-  padding: 6px;
-  box-sizing: border-box;
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1.5px solid #9ca3af; /* gray-400 */
+  border-radius: 6px;
+  outline-offset: 2px;
+  outline-color: transparent;
+  transition: outline-color 0.2s ease, border-color 0.2s ease;
 }
 
-.actions button {
-  margin-right: 6px;
-  padding: 6px 10px;
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-color: #2563eb; /* blue-600 */
+  outline-color: #93c5fd; /* blue-300 */
+  background-color: #f3f4f6; /* gray-100 */
+}
+
+/* Buttons base */
+button {
+  padding: 6px 14px;
   border: none;
-  border-radius: 3px;
-  color: white;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: #fff;
+  font-weight: 600;
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
 }
 
+/* Edit button */
 .edit-btn {
-  background-color: #007bff;
+  background-color: #3b82f6; /* blue-500 */
 }
 
+.edit-btn:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
+/* Delete button */
 .delete-btn {
-  background-color: #dc3545;
+  background-color: #ef4444; /* red-500 */
 }
 
+.delete-btn:hover {
+  background-color: #b91c1c; /* red-700 */
+}
+
+/* Save button */
 .save-btn {
-  background-color: #28a745;
+  background-color: #10b981; /* green-500 */
 }
 
+.save-btn:hover {
+  background-color: #059669; /* green-600 */
+}
+
+/* Cancel button */
 .cancel-btn {
-  background-color: #6c757d;
+  background-color: #6b7280; /* gray-500 */
 }
 
-.actions button:hover {
-  opacity: 0.85;
+.cancel-btn:hover {
+  background-color: #4b5563; /* gray-700 */
 }
 
+/* Error message */
 .error {
-  color: red;
-  margin: 10px 0;
+  color: #dc2626; /* red-600 */
+  background-color: #fee2e2; /* red-100 */
+  padding: 10px 15px;
+  border-radius: 6px;
+  margin: 1rem 0;
+  font-weight: 600;
+  border: 1px solid #fecaca; /* red-300 */
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .table-container {
+    padding: 0.5rem;
+  }
+
+  td,
+  th {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  button {
+    padding: 5px 10px;
+    font-size: 13px;
+  }
 }

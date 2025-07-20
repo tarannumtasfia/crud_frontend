@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import API from "../api";
 
-
 const UserList = ({ users, error, onDelete, onUpdate }) => {
   const [editingUserId, setEditingUserId] = useState(null);
   const [editData, setEditData] = useState({
@@ -50,17 +49,17 @@ const UserList = ({ users, error, onDelete, onUpdate }) => {
   if (error) return <div className="error">{error}</div>;
 
   return (
-    <div className="user-list-container">
+    <div className="table-container">
       <h2>User List</h2>
 
       <div className="table-wrapper">
-        <table className="user-table">
+        <table>
           <thead>
             <tr>
               <th>Username</th>
               <th>Email</th>
               <th>Address</th>
-              <th>Actions</th>
+              <th className="text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -89,7 +88,7 @@ const UserList = ({ users, error, onDelete, onUpdate }) => {
                         onChange={(e) => setEditData({ ...editData, address: e.target.value })}
                       />
                     </td>
-                    <td className="actions">
+                    <td className="text-center">
                       <button onClick={() => handleUpdate(user._id)} className="save-btn">Save</button>
                       <button onClick={cancelEdit} className="cancel-btn">Cancel</button>
                     </td>
@@ -99,7 +98,7 @@ const UserList = ({ users, error, onDelete, onUpdate }) => {
                     <td>{user.username}</td>
                     <td>{user.email || "N/A"}</td>
                     <td>{user.address || "N/A"}</td>
-                    <td className="actions">
+                    <td className="text-center">
                       <button onClick={() => startEdit(user)} className="edit-btn">Edit</button>
                       <button onClick={() => handleDelete(user._id)} className="delete-btn">Delete</button>
                     </td>
