@@ -9,6 +9,13 @@ const Dashboard = ({ loggedIn }) => {
 const handleUserDelete = (id) => {
   setUsers((prev) => prev.filter((user) => user._id !== id));
 };
+  const handleUpdate = (id, updatedUser) => {
+    setUsers((prevUsers) =>
+      prevUsers.map((user) =>
+        user._id === id ? { ...user, ...updatedUser } : user
+      )
+    );
+  };
 useEffect(() => {
   if (!loggedIn) return;
 
