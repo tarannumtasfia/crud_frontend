@@ -15,10 +15,10 @@ body {
   color: #1e293b;
   margin: 0;
   display: flex;
-  place-items: center;
+  
   min-width: 320px;
   min-height: 100vh;
-background: linear-gradient(to bottom right, #f0f9ff, #e0e7ff);
+  background: linear-gradient(to bottom right, #f0f9ff, #e0e7ff);
 
   
 }
