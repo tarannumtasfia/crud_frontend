@@ -5,6 +5,7 @@ import Login from './components/Login.jsx';
 import Dashboard from './components/Dashboard.jsx';
 
 function App() {
+  
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem('token'));
 
   const handleLogout = () => {
