@@ -1,32 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Root and body light background */
 :root {
+  background-color: #f9fafb; /* very light gray */
+  color: #1e293b; /* dark slate blue text */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  /* background-color: #242424; */
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
 }
 
 body {
+  background-color: #f9fafb;
+  color: #1e293b;
   margin: 0;
   display: flex;
   place-items: center;
@@ -34,55 +15,19 @@ body {
   min-height: 100vh;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-/* button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-} */
-
-/* @media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-} */
-/* Container */
+/* Container with white background and subtle shadows */
 .table-container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 1rem;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #2c3e50; /* dark slate blue */
-  background-color: #fefefe; /* very light */
+  background-color: #ffffff; /* pure white */
+  color: #334155; /* dark slate gray */
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 0.05);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Table wrapper to handle overflow */
+/* Table wrapper with horizontal scroll if needed */
 .table-wrapper {
   overflow-x: auto;
 }
@@ -96,32 +41,30 @@ table {
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
 }
 
-/* Table head */
+/* Table header - soft blue background and dark text */
 thead th {
-  background-color: #7fdbff; /* light sky blue */
-  color: #1a1a1a; /* almost black but softer */
+  background-color: #bfdbfe; /* light sky blue */
+  color: #1e3a8a; /* dark blue */
   padding: 12px 16px;
   text-align: left;
   font-weight: 600;
-  border-bottom: 3px solid #59c3ff; /* medium sky blue */
+  border-bottom: 3px solid #60a5fa; /* medium sky blue */
   user-select: none;
   border-radius: 8px 8px 0 0;
 }
 
-/* Center align actions header */
-thead th.text-center {
-  text-align: center;
+/* Rows - alternating white and very light blue */
+tbody tr:nth-child(odd) {
+  background-color: #ffffff;
 }
 
-/* Table body rows */
-tbody tr {
-  border-bottom: 1px solid #d6dce1; /* light gray-blue */
-  transition: background-color 0.25s ease;
+tbody tr:nth-child(even) {
+  background-color: #f0f9ff; /* very light blue */
 }
 
-/* Hover effect on rows */
+/* Hover effect */
 tbody tr:hover {
-  background-color: #e6f2ff; /* very light blue */
+  background-color: #dbeafe; /* light blue highlight */
 }
 
 /* Table cells */
@@ -129,8 +72,8 @@ td {
   padding: 12px 16px;
   vertical-align: middle;
   font-size: 15px;
-  color: #4b5563; /* medium gray */
-  border-right: 1px solid #d6dce1;
+  color: #475569; /* medium slate gray */
+  border-right: 1px solid #e2e8f0; /* light gray */
 }
 
 /* Remove right border on last td */
@@ -138,29 +81,26 @@ td:last-child {
   border-right: none;
 }
 
-/* Center align action buttons cell */
-td.text-center {
-  text-align: center;
-}
-
-/* Input fields in editing mode */
+/* Input fields */
 input[type="text"],
 input[type="email"] {
   width: 100%;
   padding: 8px 10px;
   font-size: 14px;
-  border: 1.5px solid #b0b8c1; /* light gray */
+  border: 1.5px solid #93c5fd; /* light blue */
   border-radius: 6px;
   outline-offset: 2px;
   outline-color: transparent;
   transition: outline-color 0.2s ease, border-color 0.2s ease;
+  background-color: #f9fafb;
+  color: #1e293b;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus {
-  border-color: #7fdbff; /* light sky blue */
-  outline-color: #cce9ff; /* very light blue */
-  background-color: #f5faff; /* very light blue */
+  border-color: #3b82f6; /* blue */
+  outline-color: #bfdbfe; /* light blue */
+  background-color: #ffffff;
 }
 
 /* Buttons base */
@@ -171,62 +111,62 @@ button {
   font-size: 14px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  color: #fff;
+  color: white;
   font-weight: 600;
-  box-shadow: 0 2px 5px rgb(0 0 0 / 0.05);
+  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
 }
 
-/* Edit button */
+/* Edit button - bright blue */
 .edit-btn {
-  background-color: #4fc3f7; /* light blue */
+  background-color: #3b82f6; /* blue */
 }
 
 .edit-btn:hover {
-  background-color: #29b6f6; /* medium light blue */
+  background-color: #2563eb; /* darker blue */
 }
 
-/* Delete button */
+/* Delete button - soft red */
 .delete-btn {
-  background-color: #ff8a80; /* light red */
+  background-color: #ef4444; /* red */
 }
 
 .delete-btn:hover {
-  background-color: #ff5252; /* medium red */
+  background-color: #dc2626; /* darker red */
 }
 
-/* Save button */
+/* Save button - fresh green */
 .save-btn {
-  background-color: #81c784; /* light green */
+  background-color: #22c55e; /* green */
 }
 
 .save-btn:hover {
-  background-color: #66bb6a; /* medium green */
+  background-color: #16a34a; /* darker green */
 }
 
-/* Cancel button */
+/* Cancel button - cool gray */
 .cancel-btn {
-  background-color: #b0bec5; /* light gray-blue */
+  background-color: #64748b; /* slate gray */
 }
 
 .cancel-btn:hover {
-  background-color: #90a4ae; /* medium gray-blue */
+  background-color: #475569; /* darker slate */
 }
 
 /* Error message */
 .error {
-  color: #d32f2f; /* medium red */
-  background-color: #f9dcdc; /* very light red */
+  color: #b91c1c; /* red */
+  background-color: #fee2e2; /* very light red */
   padding: 10px 15px;
   border-radius: 6px;
   margin: 1rem 0;
   font-weight: 600;
-  border: 1px solid #f4a2a2; /* light red */
+  border: 1px solid #fca5a5; /* light red */
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 640px) {
   .table-container {
     padding: 0.5rem;
