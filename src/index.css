@@ -10,7 +10,7 @@
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-/* body {
+body {
   background-color: #f9fafb;
   color: #1e293b;
   margin: 0;
@@ -18,7 +18,7 @@
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-} */
+}
 
 /* Container with white background and subtle shadows */
 .table-container {
@@ -86,40 +86,9 @@ td:last-child {
   border-right: none;
 }
 
-/* Input fields */
-input[type="text"],
-input[type="email"] {
-  width: 100%;
-  padding: 8px 10px;
-  font-size: 14px;
-  border: 1.5px solid #93c5fd; /* light blue */
-  border-radius: 6px;
-  outline-offset: 2px;
-  outline-color: transparent;
-  transition: outline-color 0.2s ease, border-color 0.2s ease;
-  background-color: #f9fafb;
-  color: #1e293b;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus {
-  border-color: #3b82f6; /* blue */
-  outline-color: #bfdbfe; /* light blue */
-  background-color: #ffffff;
-}
 
 /* Buttons base */
-button {
-  padding: 6px 14px;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  color: black;
-  font-weight: 600;
-  box-shadow: 0 2px 5px rgb(0 0 0 / 0.1);
-}
+
 
 /* Edit button - bright blue */
 .edit-btn {
