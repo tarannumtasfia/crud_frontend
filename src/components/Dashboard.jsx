@@ -31,7 +31,7 @@ useEffect(() => {
   return (
     <div>
      
-      <UserList users={users} error={error} onDelete={handleUserDelete} />
+      <UserList users={users} error={error} onDelete={handleUserDelete} onUpdate={handleUpdate} />
     </div>
   );
 };
